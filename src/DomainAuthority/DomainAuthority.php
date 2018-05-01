@@ -51,7 +51,9 @@ class DomainAuthority {
             'Signature' => $signature,
         ];
 
-        $url = 'http://lsapi.seomoz.com/linkscape/url-metrics/' . urlencode($url);
+        // switch to the new API
+        // switch back to lsapi.seomoz.com after May 3rd
+        $url = 'http://lsapi-beta.seomoz.com/linkscape/url-metrics/' . urlencode($url);
         $url = $url . '?' . implode('&', array_map(function($value, $key) {
             return "$key=$value";
         }, $qs, array_keys($qs)));
